@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "784707523522",
+    "project_id": "potent-poet-357222",
+    "storage_bucket": "potent-poet-357222.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784707523522:android:426c8971a365a03d807c5b",
+        "android_client_info": {
+          "package_name": "com.example.todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784707523522-pve7cufn7p03bvq25mtnbn6sdk8g8qsk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYZrN2IrmRSID4AXvjnJbIuzMP0nLQYx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784707523522-pve7cufn7p03bvq25mtnbn6sdk8g8qsk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
