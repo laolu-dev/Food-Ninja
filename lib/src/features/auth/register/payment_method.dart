@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:todo/src/features/auth/photo_upload.dart';
+
 import 'package:todo/src/shared/resources/resources.dart';
 import 'package:todo/src/shared/widgets/button.dart';
 import 'package:todo/src/shared/widgets/text.dart';
+
+import 'photo_upload.dart';
 
 class PaymentInfo extends StatefulWidget {
   static const String id = '/payment_info';
@@ -49,7 +51,7 @@ class _PaymentInfoState extends State<PaymentInfo> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 90),
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 45),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -92,3 +94,4 @@ class _PaymentInfoState extends State<PaymentInfo> {
     );
   }
 }
+

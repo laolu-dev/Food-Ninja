@@ -88,7 +88,7 @@ class SignupField extends ConsumerWidget {
         ),
         border: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Color.fromARGB(7, 0, 0, 0),
+            color: Color.fromARGB(5, 0, 0, 0),
           ),
           borderRadius: BorderRadius.circular(22),
         ),

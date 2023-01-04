@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:todo/src/features/auth/login.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo/src/features/auth/user_info.dart';
+
 import 'package:todo/src/shared/resources/resources.dart';
 import 'package:todo/src/shared/widgets/button.dart';
 import 'package:todo/src/shared/widgets/text.dart';
 import 'package:todo/src/shared/widgets/textfield.dart';
+
+import 'login.dart';
+import 'user_info.dart';
 
 final checkProvider = StateProvider<bool>((ref) => false);
 final checkTwoProvider = StateProvider<bool>((ref) => false);
@@ -102,10 +105,11 @@ class _SignupState extends ConsumerState<Signup> {
                     ),
                     const SizedBox(height: 44),
                     Button(
-                        buttonName: 'Create Account',
-                        fontSize: 16,
-                        hPadding: 27,
-                        onTap: () => Navigator.pushNamed(context, UserInfo.id)),
+                      buttonName: 'Create Account',
+                      fontSize: 16,
+                      hPadding: 27,
+                      onTap: () => Navigator.pushNamed(context, UserInfo.id),
+                    ),
                     const SizedBox(height: 20),
                     InkWell(
                       onTap: () => Navigator.pushNamed(context, Login.id),

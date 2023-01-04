@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todo/src/features/auth/image_controller.dart';
-import '../../shared/resources/resources.dart';
-import '../../shared/widgets/button.dart';
-import '../../shared/widgets/text.dart';
+import 'package:image_picker/image_picker.dart';
+
+import '../../../shared/resources/resources.dart';
+import '../../../shared/widgets/button.dart';
+import '../../../shared/widgets/text.dart';
+
+import 'location.dart';
 
 class UploadImage extends ConsumerStatefulWidget {
   static const String id = '/upload_image';
@@ -14,6 +19,9 @@ class UploadImage extends ConsumerStatefulWidget {
 }
 
 class _UploadImageState extends ConsumerState<UploadImage> {
+  final ImagePicker _picker = ImagePicker();
+  XFile img = XFile('');
+
   String? image;
 
   Widget imageSourcePicker(String method, Function()? pay) {
@@ -53,7 +61,7 @@ class _UploadImageState extends ConsumerState<UploadImage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 90),
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 45),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -74,13 +82,19 @@ class _UploadImageState extends ConsumerState<UploadImage> {
                   align: TextAlign.start,
                 ),
                 const SizedBox(height: 20),
-                image == null
+                img.path.isEmpty
                     ? Column(
                         children: [
-                          imageSourcePicker(Res.image.gallery, () {}),
+                          imageSourcePicker(Res.image.gallery, () async {
+                            await _picker.pickImage(
+                                source: ImageSource.gallery)
+                                .then((value) => img = value!);
+                          }),
                           const SizedBox(height: 20),
-                          imageSourcePicker(Res.image.camera, () {
-                            ref.read(cameraProvider);
+                          imageSourcePicker(Res.image.camera, () async {
+                            await _picker
+                                .pickImage(source: ImageSource.camera)
+                                .then((value) => img = value!);
                           }),
                         ],
                       )
@@ -93,6 +107,7 @@ class _UploadImageState extends ConsumerState<UploadImage> {
                               borderRadius: BorderRadius.circular(22)),
                           child: Stack(
                             children: [
+                              Image.file(File(img.path), width: 300, height: 238,),
                               Positioned(
                                 right: 0,
                                 child: IconButton(
@@ -114,7 +129,7 @@ class _UploadImageState extends ConsumerState<UploadImage> {
                     buttonName: 'Next',
                     fontSize: 16,
                     hPadding: 60,
-                    onTap: () {},
+                    onTap: () => Navigator.pushNamed(context, Location.id),
                   ),
                 ),
               ],

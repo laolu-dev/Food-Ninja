@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:todo/src/features/auth/payment_method.dart';
+
 import 'package:todo/src/shared/resources/resources.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo/src/shared/widgets/button.dart';
 import 'package:todo/src/shared/widgets/text.dart';
 import 'package:todo/src/shared/widgets/textfield.dart';
+
+import 'payment_method.dart';
 
 class UserInfo extends ConsumerWidget {
   static const String id = '/user_info';
@@ -34,7 +36,7 @@ class UserInfo extends ConsumerWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 90),
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 45),
               child: Form(
                 key: formKey,
                 child: Column(

@@ -18,4 +18,6 @@ class AppStrings {
   String get message => 'assets/icons/message.png';
   String get camera => 'assets/icons/camera.png';
   String get gallery => 'assets/icons/gallery.png';
+   String get email => 'assets/icons/reset_email.png';
+    String get sms => 'assets/icons/reset_sms.png';
 }

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:todo/src/features/auth/reset_password/forgot_password.dart';
+import 'package:todo/src/features/home/main_page.dart';
 import 'package:todo/src/shared/widgets/button.dart';
-import '../../shared/resources/resources.dart';
-import '../../shared/widgets/text.dart';
-import '../../shared/widgets/textfield.dart';
+
+import '../../../shared/resources/resources.dart';
+import '../../../shared/widgets/text.dart';
+import '../../../shared/widgets/textfield.dart';
+
 
 class Login extends StatefulWidget {
   static const String id = '/login';
@@ -30,7 +34,7 @@ class _LoginState extends State<Login> {
         minimumSize: const Size(152, 57),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
-          side: const BorderSide(),
+          side: const BorderSide(color: Color.fromARGB(35, 0, 0, 0)),
         ),
       ),
     );
@@ -98,7 +102,8 @@ class _LoginState extends State<Login> {
                     ),
                     const SizedBox(height: 20),
                     InkWell(
-                      onTap: () {},
+                      onTap: () =>
+                          Navigator.pushNamed(context, ForgotPassword.id),
                       child: AppText(
                         text: 'Forgot Your Password?',
                         fontSize: 12,
@@ -111,7 +116,9 @@ class _LoginState extends State<Login> {
                       fontSize: 16,
                       hPadding: 48,
                       onTap: () {
-                        if (formKey.currentState!.validate()) ;
+                        if (formKey.currentState!.validate()) {
+                          Navigator.pushNamed(context, MainPage.id);
+                        }
                       },
                     )
                   ],
